@@ -9,3 +9,7 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 {
    uzytkownikMenager.wypiszWszystkichUzytkownikow();
 }
+void KsiazkaAdresowa::wczytajUzytkownikowZPliku()
+{
+   uzytkownikMenager.wczytajUzytkownikowZPliku();
+}
