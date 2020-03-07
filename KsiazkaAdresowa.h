@@ -8,6 +8,7 @@ class KsiazkaAdresowa
 {
     UzytkownikMenager uzytkownikMenager;
 public:
+    KsiazkaAdresowa();
     void wczytajUzytkownikowZPliku();
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
