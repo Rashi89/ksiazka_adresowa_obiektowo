@@ -18,7 +18,7 @@ Uzytkownik UzytkownikMenager::podajDaneNowegoUzytkownika()
 
     uzytkownik.ustawID(pobierzIdNowegoUzytkownika());
 
-    string login,haslo;
+    string login;
 
     do
     {
@@ -27,7 +27,7 @@ Uzytkownik UzytkownikMenager::podajDaneNowegoUzytkownika()
         uzytkownik.ustawLogin(login);
 
     } while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
-
+    string haslo;
     cout << "Podaj haslo: ";
     cin>>haslo;
     uzytkownik.ustawHaslo(haslo);
