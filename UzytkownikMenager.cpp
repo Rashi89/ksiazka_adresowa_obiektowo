@@ -6,7 +6,7 @@ void UzytkownikMenager::rejestracjaUzytkownika()
     Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
     uzytkownicy.push_back(uzytkownik);
-    plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    plikiZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
 
     cout << endl << "Konto zalozono pomyslnie" << endl << endl;
     system("pause");
@@ -67,4 +67,7 @@ void UzytkownikMenager::wypiszWszystkichUzytkownikow()
     }
 }
 
-
+void UzytkownikMenager::wczytajUzytkownikowZPliku()
+{
+        uzytkownicy = plikiZUzytkownikami.wczytajUzytkownikowZPliku();
+}
