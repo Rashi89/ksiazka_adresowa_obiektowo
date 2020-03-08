@@ -14,7 +14,11 @@ void KsiazkaAdresowa::wypiszWszystkichUzytkownikow()
 {
    uzytkownikMenager.wypiszWszystkichUzytkownikow();
 }
-/*void KsiazkaAdresowa::wczytajUzytkownikowZPliku()
+void KsiazkaAdresowa::logowanieUzytkownika()
+{
+    uzytkownikMenager.logowanieUzytkownika();
+}
+void KsiazkaAdresowa::wczytajUzytkownikowZPliku()
 {
    uzytkownikMenager.wczytajUzytkownikowZPliku();
-}*/
+}

@@ -13,19 +13,20 @@ using namespace std;
 
 class UzytkownikMenager
 {
-     int idZalogowanegoUzytkownika;
-     vector <Uzytkownik> uzytkownicy;
+    int idZalogowanegoUzytkownika;
+    vector <Uzytkownik> uzytkownicy;
+    PlikiZUzytkownikami plikiZUzytkownikami;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
-   PlikiZUzytkownikami plikiZUzytkownikami;
 
 
  public:
-    UzytkownikMenager(string nazwaPlikuZUzytkownikami) : plikiZUzytkownikami(nazwaPlikuZUzytkownikami){};
+    UzytkownikMenager(string nazwaPlikuZUzytkownikami) : plikiZUzytkownikami(nazwaPlikuZUzytkownikami){idZalogowanegoUzytkownika=0;};
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
+    int logowanieUzytkownika();
 };
 #endif
