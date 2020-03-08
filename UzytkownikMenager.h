@@ -5,6 +5,7 @@
 #include <windows.h>
 #include <sstream>
 #include <fstream>
+#include <string>
 
 #include "Uzytkownik.h"
 #include "PlikiZUzytkownikami.h"
@@ -29,5 +30,7 @@ class UzytkownikMenager
     void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
+    //int wylogowanieZalogowanegoUzytkownika();
+
 };
 #endif
