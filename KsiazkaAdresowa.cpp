@@ -5,7 +5,6 @@
 {
     uzytkownikMenager.wczytajUzytkownikowZPliku();
 }*/
-
 void KsiazkaAdresowa::rejestracjaUzytkownika()
 {
     uzytkownikMenager.rejestracjaUzytkownika();
@@ -22,7 +21,6 @@ void KsiazkaAdresowa::wczytajUzytkownikowZPliku()
 {
    uzytkownikMenager.wczytajUzytkownikowZPliku();
 }
-
 void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 {
     uzytkownikMenager.zmianaHaslaZalogowanegoUzytkownika();
