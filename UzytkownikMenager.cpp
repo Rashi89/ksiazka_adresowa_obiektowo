@@ -98,7 +98,7 @@ int UzytkownikMenager::logowanieUzytkownika()//vector <Uzytkownik> &uzytkownicy
                     //cout<<itr->pobierzID()<<endl;
                     //idZalogowanegoUzytkownika=itr->pobierzID();
                     idZalogowanegoUzytkownika=uzytkownicy[i].pobierzID();
-                    cout<<"ID po logowaniu: "<<idZalogowanegoUzytkownika<<endl;
+                    //cout<<"ID po logowaniu: "<<idZalogowanegoUzytkownika<<endl;
                     return idZalogowanegoUzytkownika;
                 }
             }
@@ -111,4 +111,22 @@ int UzytkownikMenager::logowanieUzytkownika()//vector <Uzytkownik> &uzytkownicy
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
     return 0;
+}
+
+void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
+{
+    string noweHaslo = "";
+    cout << "Podaj nowe haslo: ";
+    noweHaslo = MetodyPomocnicze::wczytajLinie();
+
+    for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
+    {
+        if (itr -> pobierzID() == idZalogowanegoUzytkownika)
+        {
+            itr -> ustawHaslo(noweHaslo);
+            cout << "Haslo zostalo zmienione." << endl << endl;
+            system("pause");
+        }
+    }
+    plikiZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }

@@ -5,12 +5,15 @@ using namespace std;
 
 int main()
 {
-    KsiazkaAdresowa ksiazkaAdesowa("Uzytkownicy.txt");
+    KsiazkaAdresowa ksiazkaAdresowa("Uzytkownicy.txt");
     //ksiazkaAdesowa.wczytajUzytkownikowZPliku();
     //ksiazkaAdesowa.rejestracjaUzytkownika();
-    ksiazkaAdesowa.wypiszWszystkichUzytkownikow();
+    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
     //ksiazkaAdesowa.wczytajUzytkownikowZPliku();
     //ksiazkaAdesowa.wypiszWszystkichUzytkownikow();
-    ksiazkaAdesowa.logowanieUzytkownika();
+    ksiazkaAdresowa.logowanieUzytkownika();
+    ksiazkaAdresowa.zmianaHaslaZalogowanegoUzytkownika();
+    ksiazkaAdresowa.wypiszWszystkichUzytkownikow();
+    ksiazkaAdresowa.logowanieUzytkownika();
     return 0;
 }
