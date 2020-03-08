@@ -30,7 +30,7 @@ class UzytkownikMenager
     void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
-    //int wylogowanieZalogowanegoUzytkownika();
+    int wylogowanieZalogowanegoUzytkownika();
 
 };
 #endif

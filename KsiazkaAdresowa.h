@@ -14,6 +14,6 @@ public:
     void wypiszWszystkichUzytkownikow();
     void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
-    //void wylogowanieZalogowanegoUzytkownika();
+    void wylogowanieZalogowanegoUzytkownika();
 
 };

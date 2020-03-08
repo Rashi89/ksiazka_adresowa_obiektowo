@@ -114,14 +114,14 @@ int UzytkownikMenager::logowanieUzytkownika()//vector <Uzytkownik> &uzytkownicy
     system("pause");
     return 0;
 }
-/*int UzytkownikMenager::wylogowanieZalogowanegoUzytkownika()
+int UzytkownikMenager::wylogowanieZalogowanegoUzytkownika()
 {
     idZalogowanegoUzytkownika=0;
     cout<<"Wylogowales sie! "<<endl;
     //cout <<idZalogowanegoUzytkownika<<endl;
     //uzytkownicy.clear();
     return idZalogowanegoUzytkownika;
-}*/
+}
 
 void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
 {
