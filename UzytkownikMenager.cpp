@@ -1,6 +1,8 @@
 #include "UzytkownikMenager.h"
 #include "PlikiZUzytkownikami.h"
 #include <string>
+#include "AdresatMenager.h"
+
 
 void UzytkownikMenager::rejestracjaUzytkownika()
 {
@@ -87,6 +89,7 @@ int UzytkownikMenager::logowanieUzytkownika()//vector <Uzytkownik> &uzytkownicy
    //for(int i=0;i<uzytkownicy.size();i++)
     {
         if (itr -> pobierzLogin() == login)
+        //if(uzytkownicy[i].login == login)
         {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--)
             {
@@ -94,12 +97,14 @@ int UzytkownikMenager::logowanieUzytkownika()//vector <Uzytkownik> &uzytkownicy
                 haslo = MetodyPomocnicze::wczytajLinie();
 
                 if (itr -> pobierzHaslo() == haslo)
+                //if(uzytkownicy[i].haslo == haslo)
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     //cout<<itr->pobierzID()<<endl;
                     idZalogowanegoUzytkownika=itr -> pobierzID();
                     //cout<<"ID po logowaniu: "<<idZalogowanegoUzytkownika<<endl;
+                    //idZalogowanegoUzytkownika=uzytkownicy[i].id;
                     return idZalogowanegoUzytkownika;
                 }
             }
@@ -138,4 +143,9 @@ void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
         }
     }
     plikiZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+void UzytkownikMenager::dodajAdresata()
+{
+    AdresatMenager adresatMenager;
+    adresatMenager.dodajAdresata(idZalogowanegoUzytkownika);
 }

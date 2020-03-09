@@ -9,6 +9,7 @@
 #include <algorithm>
 
 #include "Adresat.h"
+#include "UzytkownikMenager.h"
 
 using namespace std;
 
@@ -17,12 +18,12 @@ class AdresatMenager
     int idOstatniegoAdresata;
     int idUsunietegoAdresata;
     vector <Adresat> adresaci;
-    int idZalogowanegoUzytkownika;
+    //int idZalogowanegoUzytkownika;
 
 public:
     AdresatMenager();
-    int dodajAdresata();
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata);
+    int dodajAdresata(int &idZalogowanegoUzytkownika);
+    Adresat podajDaneNowegoAdresata(int &idZalogowanegoUzytkownika);
     string zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst);
     string wczytajLinie();
 };

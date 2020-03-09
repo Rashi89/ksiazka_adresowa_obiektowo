@@ -32,5 +32,5 @@ void KsiazkaAdresowa::wylogowanieZalogowanegoUzytkownika()
 }
 void KsiazkaAdresowa::dodajAdresata()
 {
-    adresatMenager.dodajAdresata();
+    uzytkownikMenager.dodajAdresata();
 }

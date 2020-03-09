@@ -1,31 +1,18 @@
 #include "AdresatMenager.h"
+#include "UzytkownikMenager.h"
 #include <string>
 
 AdresatMenager::AdresatMenager()
 {
-    idOstatniegoAdresata=0;
+    ;
 }
 
-int AdresatMenager::dodajAdresata()
+Adresat AdresatMenager::podajDaneNowegoAdresata(int &idZalogowanegoUzytkownika)
 {
     Adresat adresat;
-
-    system("cls");
-    cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika, idOstatniegoAdresata);
-
-    adresaci.push_back(adresat);
-    //dopiszAdresataDoPliku(adresat);
-
-    return ++idOstatniegoAdresata;
-}
-Adresat AdresatMenager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, int idOstatniegoAdresata)
-{
-    Adresat adresat;
-
     adresat.ustawID(++idOstatniegoAdresata);
     adresat.ustawIDUzytkownika(idZalogowanegoUzytkownika);
-
+    cout<<adresat.pobierzIDUzytkownika()<<endl;
     string imie;
     cout << "Podaj imie: ";
     cin>> imie;
@@ -49,6 +36,18 @@ Adresat AdresatMenager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika, i
     adresat.ustawAdres(wczytajLinie());
 
     return adresat;
+}
+int AdresatMenager::dodajAdresata(int &idZalogowanegoUzytkownika)
+{
+    Adresat adresat;
+    //system("cls");
+    cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
+    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika);
+
+    adresaci.push_back(adresat);
+    //dopiszAdresataDoPliku(adresat);
+
+    return ++idOstatniegoAdresata;
 }
 string AdresatMenager::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
 {
