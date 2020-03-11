@@ -34,3 +34,7 @@ void KsiazkaAdresowa::dodajAdresata()
 {
     uzytkownikMenager.dodajAdresata();
 }
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+{
+    uzytkownikMenager.wyswietlWszystkichAdresatow();
+}
