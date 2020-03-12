@@ -17,7 +17,7 @@ using namespace std;
 class UzytkownikMenager
 {
     int idZalogowanegoUzytkownika;
-    int idAdresata;
+    //int idOstatniegoAdresata;
     vector <Uzytkownik> uzytkownicy;
     PlikiZUzytkownikami plikiZUzytkownikami;
     vector <Adresat> adresaci;
@@ -26,9 +26,14 @@ class UzytkownikMenager
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
 
+
  public:
 //    AdresatMenager adresatMenager;
-    UzytkownikMenager(string nazwaPlikuZUzytkownikami) : plikiZUzytkownikami(nazwaPlikuZUzytkownikami){idZalogowanegoUzytkownika=0; idAdresata=0;};
+    int idOstatniegoAdresata;
+    UzytkownikMenager(string nazwaPlikuZUzytkownikami) : plikiZUzytkownikami(nazwaPlikuZUzytkownikami){
+        idZalogowanegoUzytkownika=0;
+        idOstatniegoAdresata=0;
+        };
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
@@ -37,6 +42,8 @@ class UzytkownikMenager
     int wylogowanieZalogowanegoUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+
 
 };
 #endif

@@ -147,10 +147,16 @@ void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
 void UzytkownikMenager::dodajAdresata()
 {
     AdresatMenager adresatMenager;
-    adresatMenager.dodajAdresata(adresaci,idZalogowanegoUzytkownika,idAdresata);
+    adresatMenager.dodajAdresata(adresaci,idZalogowanegoUzytkownika);
 }
 void UzytkownikMenager::wyswietlWszystkichAdresatow()
 {
     AdresatMenager adresatMenager;
     adresatMenager.wyswietlWszystkichAdresatow(adresaci);
 }
+void UzytkownikMenager::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
+{
+    AdresatMenager adresatMenager;
+    adresatMenager.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci,idZalogowanegoUzytkownika);
+}
+
