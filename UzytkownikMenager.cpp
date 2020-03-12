@@ -1,6 +1,8 @@
 #include "UzytkownikMenager.h"
 #include "PlikiZUzytkownikami.h"
 #include <string>
+#include "AdresatMenager.h"
+
 
 void UzytkownikMenager::rejestracjaUzytkownika()
 {
@@ -79,28 +81,30 @@ int UzytkownikMenager::logowanieUzytkownika()//vector <Uzytkownik> &uzytkownicy
     string login = "", haslo = "";
 
     cout << "Podaj login: ";
-    cin>>login;
-    //login = MetodyPomocnicze::wczytajLinie(); <-to nie chce dzialac
+    //cin>>login;
+    login = MetodyPomocnicze::wczytajLinie(); //<-to nie chce dzialac
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
     while (itr != uzytkownicy.end())
    //for(int i=0;i<uzytkownicy.size();i++)
     {
         if (itr -> pobierzLogin() == login)
+        //if(uzytkownicy[i].login == login)
         {
             for (int iloscProb = 3; iloscProb > 0; iloscProb--)
             {
                 cout << "Podaj haslo. Pozostalo prob: " << iloscProb << ": ";
-                cin>> haslo; //= MetodyPomocnicze::wczytajLinie();
+                haslo = MetodyPomocnicze::wczytajLinie();
 
                 if (itr -> pobierzHaslo() == haslo)
+                //if(uzytkownicy[i].haslo == haslo)
                 {
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
                     //cout<<itr->pobierzID()<<endl;
-                    //idZalogowanegoUzytkownika=itr->pobierzID();
                     idZalogowanegoUzytkownika=itr -> pobierzID();
                     //cout<<"ID po logowaniu: "<<idZalogowanegoUzytkownika<<endl;
+                    //idZalogowanegoUzytkownika=uzytkownicy[i].id;
                     return idZalogowanegoUzytkownika;
                 }
             }
@@ -139,4 +143,14 @@ void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
         }
     }
     plikiZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
+}
+void UzytkownikMenager::dodajAdresata()
+{
+    AdresatMenager adresatMenager;
+    adresatMenager.dodajAdresata(adresaci,idZalogowanegoUzytkownika,idAdresata);
+}
+void UzytkownikMenager::wyswietlWszystkichAdresatow()
+{
+    AdresatMenager adresatMenager;
+    adresatMenager.wyswietlWszystkichAdresatow(adresaci);
 }

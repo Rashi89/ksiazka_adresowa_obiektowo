@@ -8,29 +8,35 @@
 #include <string>
 
 #include "Uzytkownik.h"
+#include "Adresat.h"
 #include "PlikiZUzytkownikami.h"
+#include "AdresatMenager.h"
 
 using namespace std;
 
 class UzytkownikMenager
 {
     int idZalogowanegoUzytkownika;
+    int idAdresata;
     vector <Uzytkownik> uzytkownicy;
     PlikiZUzytkownikami plikiZUzytkownikami;
+    vector <Adresat> adresaci;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
     bool czyIstniejeLogin(string login);
 
-
  public:
-    UzytkownikMenager(string nazwaPlikuZUzytkownikami) : plikiZUzytkownikami(nazwaPlikuZUzytkownikami){idZalogowanegoUzytkownika=0;};
+//    AdresatMenager adresatMenager;
+    UzytkownikMenager(string nazwaPlikuZUzytkownikami) : plikiZUzytkownikami(nazwaPlikuZUzytkownikami){idZalogowanegoUzytkownika=0; idAdresata=0;};
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
     void wczytajUzytkownikowZPliku();
     int logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
     int wylogowanieZalogowanegoUzytkownika();
+    void dodajAdresata();
+    void wyswietlWszystkichAdresatow();
 
 };
 #endif

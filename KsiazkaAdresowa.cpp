@@ -1,5 +1,6 @@
 #include "KsiazkaAdresowa.h"
 #include "UzytkownikMenager.h""
+#include "AdresatMenager.h"
 
 /*KsiazkaAdresowa::KsiazkaAdresowa()
 {
@@ -28,4 +29,12 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 void KsiazkaAdresowa::wylogowanieZalogowanegoUzytkownika()
 {
     uzytkownikMenager.wylogowanieZalogowanegoUzytkownika();
+}
+void KsiazkaAdresowa::dodajAdresata()
+{
+    uzytkownikMenager.dodajAdresata();
+}
+void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
+{
+    uzytkownikMenager.wyswietlWszystkichAdresatow();
 }
