@@ -87,7 +87,10 @@ void AdresatMenager::wyswietlDaneAdresata(Adresat &adresat)
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
 
-
+void AdresatMenager::wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci,int &idZalogowanegoUzytkownika)
+{
+        plikiZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci,idZalogowanegoUzytkownika);
+}
 
 string AdresatMenager::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
 {

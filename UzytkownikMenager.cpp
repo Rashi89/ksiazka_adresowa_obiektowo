@@ -74,6 +74,11 @@ void UzytkownikMenager::wczytajUzytkownikowZPliku()
 {
         uzytkownicy = plikiZUzytkownikami.wczytajUzytkownikowZPliku();
 }
+void UzytkownikMenager::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
+{
+        AdresatMenager adresatMenager;
+        adresatMenager.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci,idZalogowanegoUzytkownika);
+}
 
 int UzytkownikMenager::logowanieUzytkownika()//vector <Uzytkownik> &uzytkownicy
 {

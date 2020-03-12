@@ -10,6 +10,7 @@
 #include "Uzytkownik.h"
 #include "Adresat.h"
 #include "PlikiZUzytkownikami.h"
+#include "PlikiZAdresatami.h"
 #include "AdresatMenager.h"
 
 using namespace std;
@@ -21,6 +22,7 @@ class UzytkownikMenager
     vector <Uzytkownik> uzytkownicy;
     PlikiZUzytkownikami plikiZUzytkownikami;
     vector <Adresat> adresaci;
+    PlikiZAdresatami plikiZAdresatami;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
@@ -37,6 +39,7 @@ class UzytkownikMenager
     int wylogowanieZalogowanegoUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 
 };
 #endif

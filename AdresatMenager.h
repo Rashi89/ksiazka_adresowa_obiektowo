@@ -30,7 +30,6 @@ public:
     string wczytajLinie();
     void wyswietlWszystkichAdresatow(vector <Adresat> &adresaci);
     void wyswietlDaneAdresata(Adresat &adresat);
-    //void dopiszAdresataDoPliku(Adresat adresat);
-    //string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
+    void wczytajAdresatowZalogowanegoUzytkownikaZPliku(vector <Adresat> &adresaci,int &idZalogowanegoUzytkownika);
 };
 #endif
