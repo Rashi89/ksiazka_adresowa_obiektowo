@@ -1,5 +1,6 @@
 #include "AdresatMenager.h"
 #include "UzytkownikMenager.h"
+#include "PlikiZAdresatami.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -18,7 +19,7 @@ Adresat AdresatMenager::podajDaneNowegoAdresata(int &idZalogowanegoUzytkownika,i
     Adresat adresat;
     adresat.ustawID(++idOstatniegoAdresata);
     adresat.ustawIDUzytkownika(idZalogowanegoUzytkownika);
-    cout<<adresat.pobierzID()<<endl;
+    //cout<<adresat.pobierzID()<<endl;
     string imie;
     cout << "Podaj imie: ";
     //imie=wczytajLinie();
@@ -51,7 +52,7 @@ int AdresatMenager::dodajAdresata(vector <Adresat> &adresaci,int &idZalogowanego
     adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika,idOstatniegoAdresata);
 
     adresaci.push_back(adresat);
-    //dopiszAdresataDoPliku(adresat);
+    plikiZAdresatami.dopiszAdresataDoPliku(adresat);
 
     return idOstatniegoAdresata+1;
 }
