@@ -75,14 +75,14 @@ void UzytkownikMenager::wczytajUzytkownikowZPliku()
         uzytkownicy = plikiZUzytkownikami.wczytajUzytkownikowZPliku();
 }
 
-int UzytkownikMenager::logowanieUzytkownika()//vector <Uzytkownik> &uzytkownicy
+int UzytkownikMenager::logowanieUzytkownika()
 {
     Uzytkownik uzytkownik;
     string login = "", haslo = "";
 
     cout << "Podaj login: ";
     //cin>>login;
-    login = MetodyPomocnicze::wczytajLinie(); //<-to nie chce dzialac
+    login = MetodyPomocnicze::wczytajLinie();
 
     vector <Uzytkownik>::iterator itr = uzytkownicy.begin();
     while (itr != uzytkownicy.end())
@@ -157,6 +157,6 @@ void UzytkownikMenager::wyswietlWszystkichAdresatow()
 void UzytkownikMenager::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
 {
     AdresatMenager adresatMenager;
-    adresatMenager.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci,idZalogowanegoUzytkownika);
+    adresatMenager.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
 }
 
