@@ -38,3 +38,8 @@ void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
 {
     uzytkownikMenager.wyswietlWszystkichAdresatow();
 }
+void KsiazkaAdresowa::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
+{
+    uzytkownikMenager.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+}
+

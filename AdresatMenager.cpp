@@ -1,5 +1,6 @@
 #include "AdresatMenager.h"
 #include "UzytkownikMenager.h"
+#include "PlikiZAdresatami.h"
 #include <string>
 #include <iostream>
 #include <fstream>
@@ -7,13 +8,15 @@
 #include <vector>
 #include <algorithm>
 #include <sstream>
+#include <stdlib.h>
 
 AdresatMenager::AdresatMenager()
 {
     idOstatniegoAdresata=0;
+
 }
 
-Adresat AdresatMenager::podajDaneNowegoAdresata(int &idZalogowanegoUzytkownika,int &idOstatniegoAdresata)
+Adresat AdresatMenager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika,int &idOstatniegoAdresata)
 {
     Adresat adresat;
     adresat.ustawID(++idOstatniegoAdresata);
@@ -21,39 +24,110 @@ Adresat AdresatMenager::podajDaneNowegoAdresata(int &idZalogowanegoUzytkownika,i
     cout<<adresat.pobierzID()<<endl;
     string imie;
     cout << "Podaj imie: ";
-    //imie=wczytajLinie();
-    adresat.ustawImie(wczytajLinie());
-    adresat.pobierzImie() = zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzImie());
+    adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
+    adresat.pobierzImie() = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzImie());
 
     string nazwisko;
     cout << "Podaj nazwisko: ";
-    //cin >> nazwisko;
-    adresat.ustawNazwisko(wczytajLinie());
-    adresat.pobierzNazwisko() = zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzNazwisko());
+
+    adresat.ustawNazwisko(MetodyPomocnicze::wczytajLinie());
+    adresat.pobierzNazwisko() = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzNazwisko());
 
     cout << "Podaj numer telefonu: ";
 
-    adresat.ustawNumerTelefonu(wczytajLinie());
+    adresat.ustawNumerTelefonu(MetodyPomocnicze::wczytajLinie());
 
     cout << "Podaj email: ";
-    adresat.ustawEmail(wczytajLinie());
+    adresat.ustawEmail(MetodyPomocnicze::wczytajLinie());
 
     cout << "Podaj adres: ";
-    adresat.ustawAdres(wczytajLinie());
+    adresat.ustawAdres(MetodyPomocnicze::wczytajLinie());
 
     return adresat;
 }
-int AdresatMenager::dodajAdresata(vector <Adresat> &adresaci,int &idZalogowanegoUzytkownika,int &idOstatniegoAdresata)
+
+Adresat  AdresatMenager::pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami)
 {
     Adresat adresat;
+    string pojedynczaDanaAdresata = "";
+    int numerPojedynczejDanejAdresata = 1;
+
+    for (int pozycjaZnaku = 0; pozycjaZnaku < daneAdresataOddzielonePionowymiKreskami.length(); pozycjaZnaku++)
+    {
+        if (daneAdresataOddzielonePionowymiKreskami[pozycjaZnaku] != '|')
+        {
+            pojedynczaDanaAdresata += daneAdresataOddzielonePionowymiKreskami[pozycjaZnaku];
+        }
+        else
+        {
+            switch(numerPojedynczejDanejAdresata)
+            {
+            case 1:
+                adresat.ustawID(atoi(pojedynczaDanaAdresata.c_str()));
+                break;
+            case 2:
+                adresat.ustawIDUzytkownika(atoi(pojedynczaDanaAdresata.c_str()));
+                break;
+            case 3:
+                adresat.ustawImie(pojedynczaDanaAdresata);
+                break;
+            case 4:
+                adresat.ustawNazwisko(pojedynczaDanaAdresata);
+                break;
+            case 5:
+                adresat.ustawNumerTelefonu(pojedynczaDanaAdresata);
+                break;
+            case 6:
+                adresat.ustawEmail(pojedynczaDanaAdresata);
+                break;
+            case 7:
+                adresat.ustawAdres(pojedynczaDanaAdresata);
+                break;
+            }
+            pojedynczaDanaAdresata = "";
+            numerPojedynczejDanejAdresata++;
+        }
+    }
+    return adresat;
+}
+
+void AdresatMenager::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
+{
+    PlikiZAdresatami plikiZAdresatami;
+    plikiZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci,idZalogowanegoUzytkownika);
+}
+
+int AdresatMenager::dodajAdresata(vector <Adresat> &adresaci,int idZalogowanegoUzytkownika)
+{
+    PlikiZAdresatami plikiZAdresatami;
+
+    idOstatniegoAdresata=plikiZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci,idZalogowanegoUzytkownika);
+    Adresat adresat;
+    cout<<"Dodajemy z tym id: "<<idOstatniegoAdresata<<endl;
     //system("cls");
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
     adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika,idOstatniegoAdresata);
 
     adresaci.push_back(adresat);
-    //dopiszAdresataDoPliku(adresat);
+    plikiZAdresatami.dopiszAdresataDoPliku(adresat);
 
-    return idOstatniegoAdresata+1;
+    return ++idOstatniegoAdresata;
+
+}
+
+string AdresatMenager::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat)
+{
+    string liniaZDanymiAdresata = "";
+
+    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzID()) + '|';
+    liniaZDanymiAdresata += MetodyPomocnicze::konwerjsaIntNaString(adresat.pobierzIDUzytkownika()) + '|';
+    liniaZDanymiAdresata += adresat.pobierzImie() + '|';
+    liniaZDanymiAdresata += adresat.pobierzNazwisko() + '|';
+    liniaZDanymiAdresata += adresat.pobierzNumerTelefonu() + '|';
+    liniaZDanymiAdresata += adresat.pobierzEmail() + '|';
+    liniaZDanymiAdresata += adresat.pobierzAdres() + '|';
+
+    return liniaZDanymiAdresata;
 }
 
 void AdresatMenager::wyswietlWszystkichAdresatow(vector <Adresat> &adresaci)
@@ -76,7 +150,7 @@ void AdresatMenager::wyswietlWszystkichAdresatow(vector <Adresat> &adresaci)
     system("pause");
 }
 
-void AdresatMenager::wyswietlDaneAdresata(Adresat &adresat)
+void AdresatMenager::wyswietlDaneAdresata(Adresat adresat)
 {
     cout << endl << "Id:                 " << adresat.pobierzID() << endl;
     cout << "Imie:               " << adresat.pobierzImie() << endl;
@@ -86,22 +160,3 @@ void AdresatMenager::wyswietlDaneAdresata(Adresat &adresat)
     cout << "Adres:              " << adresat.pobierzAdres() << endl;
 }
 
-
-
-string AdresatMenager::zamienPierwszaLitereNaDuzaAPozostaleNaMale(string tekst)
-{
-    if (!tekst.empty())
-    {
-        transform(tekst.begin(), tekst.end(), tekst.begin(), ::tolower);
-        tekst[0] = toupper(tekst[0]);
-    }
-    return tekst;
-}
-string AdresatMenager::wczytajLinie()
-{
-    string wejscie="";
-    getline(cin, wejscie);
-    //cin.ignore();
-	//cin.get();
-    return wejscie;
-}
