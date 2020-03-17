@@ -30,6 +30,9 @@ public:
     void wylogowanieZalogowanegoUzytkownika();
     void dodajAdresata();
     void wyswietlWszystkichAdresatow();
+    bool czyUzytkownikJestZalogowany();
+    char wybierzOpcjeZMenuGlownego();
+    char wybierzOpcjeZMenuUzytkownika();
 
 
 
