@@ -10,17 +10,12 @@
 #include <sstream>
 #include <stdlib.h>
 
-AdresatMenager::AdresatMenager()
-{
-    idOstatniegoAdresata=0;
 
-}
-
-Adresat AdresatMenager::podajDaneNowegoAdresata(int idZalogowanegoUzytkownika,int &idOstatniegoAdresata)
+Adresat AdresatMenager::podajDaneNowegoAdresata()
 {
     Adresat adresat;
-    adresat.ustawID(++idOstatniegoAdresata);
-    adresat.ustawIDUzytkownika(idZalogowanegoUzytkownika);
+    adresat.ustawID(plikiZAdresatami.pobierzIdOstatniegoAdresata()+1);
+    adresat.ustawIDUzytkownika(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     cout<<adresat.pobierzID()<<endl;
     string imie;
     cout << "Podaj imie: ";
@@ -91,27 +86,22 @@ Adresat  AdresatMenager::pobierzDaneAdresata(string daneAdresataOddzielonePionow
     return adresat;
 }
 
-void AdresatMenager::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
-{
-    PlikiZAdresatami plikiZAdresatami;
-    plikiZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci,idZalogowanegoUzytkownika);
-}
 
-int AdresatMenager::dodajAdresata(vector <Adresat> &adresaci,int idZalogowanegoUzytkownika)
-{
-    PlikiZAdresatami plikiZAdresatami;
 
-    idOstatniegoAdresata=plikiZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(adresaci,idZalogowanegoUzytkownika);
+void AdresatMenager::dodajAdresata()
+{
+
     Adresat adresat;
-    cout<<"Dodajemy z tym id: "<<idOstatniegoAdresata<<endl;
-    //system("cls");
+
     cout << " >>> DODAWANIE NOWEGO ADRESATA <<<" << endl << endl;
-    adresat = podajDaneNowegoAdresata(idZalogowanegoUzytkownika,idOstatniegoAdresata);
+    adresat = podajDaneNowegoAdresata();
 
     adresaci.push_back(adresat);
-    plikiZAdresatami.dopiszAdresataDoPliku(adresat);
-
-    return ++idOstatniegoAdresata;
+    if(plikiZAdresatami.dopiszAdresataDoPliku(adresat))
+        cout<<"Nowy adresat zostal dodany"<<endl;
+    else
+        cout<<"Blad!. Nie udalo sie dodac adresata do pliku!"<<endl;
+    system("pause");
 
 }
 
@@ -130,7 +120,7 @@ string AdresatMenager::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKres
     return liniaZDanymiAdresata;
 }
 
-void AdresatMenager::wyswietlWszystkichAdresatow(vector <Adresat> &adresaci)
+void AdresatMenager::wyswietlWszystkichAdresatow()
 {
     system("cls");
     if (!adresaci.empty())

@@ -70,12 +70,8 @@ void UzytkownikMenager::wypiszWszystkichUzytkownikow()
     }
 }
 
-void UzytkownikMenager::wczytajUzytkownikowZPliku()
-{
-        uzytkownicy = plikiZUzytkownikami.wczytajUzytkownikowZPliku();
-}
 
-int UzytkownikMenager::logowanieUzytkownika()
+void UzytkownikMenager::logowanieUzytkownika()
 {
     Uzytkownik uzytkownik;
     string login = "", haslo = "";
@@ -99,32 +95,26 @@ int UzytkownikMenager::logowanieUzytkownika()
                 if (itr -> pobierzHaslo() == haslo)
                 //if(uzytkownicy[i].haslo == haslo)
                 {
+                    idZalogowanegoUzytkownika=itr -> pobierzID();
                     cout << endl << "Zalogowales sie." << endl << endl;
                     system("pause");
-                    //cout<<itr->pobierzID()<<endl;
-                    idZalogowanegoUzytkownika=itr -> pobierzID();
-                    //cout<<"ID po logowaniu: "<<idZalogowanegoUzytkownika<<endl;
-                    //idZalogowanegoUzytkownika=uzytkownicy[i].id;
-                    return idZalogowanegoUzytkownika;
+                    return;
                 }
             }
             cout << "Wprowadzono 3 razy bledne haslo." << endl;
             system("pause");
-            return 0;
+            return;
         }
         itr++;
     }
     cout << "Nie ma uzytkownika z takim loginem" << endl << endl;
     system("pause");
-    return 0;
+    return;
 }
-int UzytkownikMenager::wylogowanieZalogowanegoUzytkownika()
+void UzytkownikMenager::wylogowanieZalogowanegoUzytkownika()
 {
     idZalogowanegoUzytkownika=0;
-    cout<<"Wylogowales sie! "<<endl;
-    //cout <<idZalogowanegoUzytkownika<<endl;
-    //uzytkownicy.clear();
-    return idZalogowanegoUzytkownika;
+    cout<<"Wylogowales sie!"<<endl;
 }
 
 void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
@@ -144,19 +134,15 @@ void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
     }
     plikiZUzytkownikami.zapiszWszystkichUzytkownikowDoPliku(uzytkownicy);
 }
-void UzytkownikMenager::dodajAdresata()
+bool UzytkownikMenager::czyUzytkownikJestZalogowany()
 {
-    AdresatMenager adresatMenager;
-    adresatMenager.dodajAdresata(adresaci,idZalogowanegoUzytkownika);
+    if(idZalogowanegoUzytkownika>0)
+        return true;
+    else
+        return false;
 }
-void UzytkownikMenager::wyswietlWszystkichAdresatow()
+int UzytkownikMenager::pobierzIdZalogowanegoUzytkownika()
 {
-    AdresatMenager adresatMenager;
-    adresatMenager.wyswietlWszystkichAdresatow(adresaci);
-}
-void UzytkownikMenager::wczytajAdresatowZalogowanegoUzytkownikaZPliku()
-{
-    AdresatMenager adresatMenager;
-    adresatMenager.wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    return idZalogowanegoUzytkownika;
 }
 
