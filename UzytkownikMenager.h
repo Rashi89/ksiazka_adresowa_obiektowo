@@ -17,10 +17,10 @@ using namespace std;
 class UzytkownikMenager
 {
     int idZalogowanegoUzytkownika;
-    int idOstatniegoAdresata;
+    //int idOstatniegoAdresata;
     vector <Uzytkownik> uzytkownicy;
     PlikiZUzytkownikami plikiZUzytkownikami;
-    vector <Adresat> adresaci;
+    //vector <Adresat> adresaci;
 
     Uzytkownik podajDaneNowegoUzytkownika();
     int pobierzIdNowegoUzytkownika();
@@ -28,20 +28,18 @@ class UzytkownikMenager
 
 
  public:
-    //int idOstatniegoAdresata;
     UzytkownikMenager(string nazwaPlikuZUzytkownikami) : plikiZUzytkownikami(nazwaPlikuZUzytkownikami){
         idZalogowanegoUzytkownika=0;
-        idOstatniegoAdresata=0;
+        uzytkownicy =plikiZUzytkownikami.wczytajUzytkownikowZPliku();
         };
     void rejestracjaUzytkownika();
     void wypiszWszystkichUzytkownikow();
-    void wczytajUzytkownikowZPliku();
-    int logowanieUzytkownika();
+    void logowanieUzytkownika();
     void zmianaHaslaZalogowanegoUzytkownika();
-    int wylogowanieZalogowanegoUzytkownika();
-    void dodajAdresata();
-    void wyswietlWszystkichAdresatow();
-    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
+    void wylogowanieZalogowanegoUzytkownika();
+    bool czyUzytkownikJestZalogowany();
+    int pobierzIdZalogowanegoUzytkownika();
+
 
 
 };

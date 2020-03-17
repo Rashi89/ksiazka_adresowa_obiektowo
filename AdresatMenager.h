@@ -17,19 +17,23 @@ using namespace std;
 
 class AdresatMenager
 {
-    int idOstatniegoAdresata;
-    int idUsunietegoAdresata;
+    const int ID_ZALOGOWANEGO_UZYTKOWNIKA;
     vector <Adresat> adresaci;
-    int idZalogowanegoUzytkownika;
+    PlikiZAdresatami plikiZAdresatami;
+
+    Adresat podajDaneNowegoAdresata();
+    void wyswietlDaneAdresata(Adresat adresat);
 
 public:
-    AdresatMenager();
-    void wyswietlWszystkichAdresatow(vector <Adresat> &adresaci);
-    void wyswietlDaneAdresata(Adresat adresat);
-    int dodajAdresata(vector <Adresat> &adresaci,int idZalogowanegoUzytkownika);
-    Adresat podajDaneNowegoAdresata(int idZalogowanegoUzytkownika,int &idOstatniegoAdresata);
+    AdresatMenager(string nazwaPlikuZAdresatami, int idZalogowanegoUzytkownika): plikiZAdresatami(nazwaPlikuZAdresatami), ID_ZALOGOWANEGO_UZYTKOWNIKA(idZalogowanegoUzytkownika)
+    {
+        adresaci = plikiZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
+    };
+    void wyswietlWszystkichAdresatow();
+
+    void dodajAdresata();
+
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
-    void wczytajAdresatowZalogowanegoUzytkownikaZPliku();
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
 
 };
