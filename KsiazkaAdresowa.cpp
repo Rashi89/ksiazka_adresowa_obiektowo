@@ -77,8 +77,8 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuGlownego()
 }
 char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
 {
-
-    char wybor;
+    uzytkownikMenager.wybierzOpcjeZMenuUzytkownika();
+    /*char wybor;
 
     system("cls");
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
@@ -96,5 +96,5 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
     cout << "Twoj wybor: ";
     wybor = MetodyPomocnicze::wczytajZnak();
 
-    return wybor;
+    return wybor;*/
 }
