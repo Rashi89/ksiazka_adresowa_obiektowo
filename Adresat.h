@@ -19,7 +19,7 @@ class Adresat
 
 public:
     //setery
-    Adresat(int id=0, int idUzytkownika=0, string imie="", string nazwisko="", string numerTelefonu=0, string email="", string adres="")
+    Adresat(int id=0, int idUzytkownika=0, string imie="", string nazwisko="", string numerTelefonu="", string email="", string adres="")
     {
         this->id = id;
         this->idUzytkownika = idUzytkownika;
