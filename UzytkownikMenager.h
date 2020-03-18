@@ -39,6 +39,8 @@ class UzytkownikMenager
     void wylogowanieZalogowanegoUzytkownika();
     bool czyUzytkownikJestZalogowany();
     int pobierzIdZalogowanegoUzytkownika();
+    char wybierzOpcjeZMenuUzytkownika();
+    //void wybierzOpcjeZMenuGlownego();
 
 
 
