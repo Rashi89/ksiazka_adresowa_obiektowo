@@ -42,6 +42,18 @@ void KsiazkaAdresowa::dodajAdresata()
         system("pause");
     }
 }
+void KsiazkaAdresowa::usunAdresata()
+{
+   if(uzytkownikMenager.czyUzytkownikJestZalogowany())
+    {
+        adresatMenager->usunAdresata();
+    }
+    else
+    {
+        cout<<"Aby usunac adresata nalezy sie zalogowac!"<<endl;
+        system("pause");
+    }
+}
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
 {
     if(uzytkownikMenager.czyUzytkownikJestZalogowany())
