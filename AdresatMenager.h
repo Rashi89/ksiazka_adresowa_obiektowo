@@ -32,6 +32,7 @@ public:
     void wyswietlWszystkichAdresatow();
 
     void dodajAdresata();
+    void usunAdresata();
 
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
