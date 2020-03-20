@@ -37,6 +37,7 @@ public:
     void usunWybranaLinieWPliku(int idUsuwanegoAdresata);
     void usunPlik(string NAZWA_PLIKU_Z_ADRESATAMI);
     void zmienNazwePliku(string nazwaTymczasowegoPlikuZAdresatami, string NAZWA_PLIKU_Z_ADRESATAMI);
+    void edytujWybranaLinieWPliku(int idEdytowanegoAdresata,string liniaZDanymiAdresata);
 
 
 

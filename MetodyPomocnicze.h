@@ -1,9 +1,11 @@
 #ifndef METODYPOMOCNICZE_H
 #define METODYPOMOCNICZE_H
 #include <iostream>
-#include <sstream>
-#include <string>
+#include <fstream>
+#include <windows.h>
+#include <vector>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 

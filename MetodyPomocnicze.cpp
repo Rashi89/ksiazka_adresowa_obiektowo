@@ -1,4 +1,5 @@
 #include "MetodyPomocnicze.h"
+#include "AdresatMenager.h"
 
 string MetodyPomocnicze::konwerjsaIntNaString(int liczba)
 {
