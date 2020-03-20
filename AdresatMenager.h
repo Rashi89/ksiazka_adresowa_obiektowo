@@ -33,6 +33,9 @@ public:
 
     void dodajAdresata();
     void usunAdresata();
+    void edytujAdresata();
+    void zaktualizujDaneWybranegoAdresata(Adresat adresat);
+    char wybierzOpcjeZMenuEdycja();
 
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
     string zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKreskami(Adresat adresat);
