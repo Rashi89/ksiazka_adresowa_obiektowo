@@ -42,7 +42,7 @@ int main()
                 ksiazkaAdresowa.wyszukajAdresatowPoImieniu();
                 break;
             case '3':
-                //wyszukajAdresatowPoNazwisku(adresaci);
+                ksiazkaAdresowa.wyszukajAdresatowPoNazwisku();
                 break;
             case '4':
                 ksiazkaAdresowa.wyswietlWszystkichAdresatow();

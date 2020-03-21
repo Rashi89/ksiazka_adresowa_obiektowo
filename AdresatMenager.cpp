@@ -212,8 +212,9 @@ void AdresatMenager::usunAdresata()
         {
             czyIstniejeAdresat = true;
             cout << endl << "Potwierdz naciskajac klawisz 't': ";
-            cin >> znak;
-            //znak = MetodyPomocnicze::wczytajZnak();
+            cin.sync();
+
+            znak = MetodyPomocnicze::wczytajZnak();
             if (znak == 't')
             {
                 //numerLiniiUsuwanegoAdresata = zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
@@ -255,7 +256,7 @@ string AdresatMenager::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKres
     return liniaZDanymiAdresata;
 }
 
-/*void AdresatMenager::wyszukajAdresatowPoNazwisku()
+void AdresatMenager::wyszukajAdresatowPoNazwisku()
 {
     string nazwiskoPoszukiwanegoAdresata = "";
     int iloscAdresatow = 0;
@@ -263,9 +264,9 @@ string AdresatMenager::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKres
     system("cls");
     if (!adresaci.empty())
     {
-        cout << ">>> WYSZUKIWANIE ADRESATOW O IMIENIU <<<" << endl << endl;
+        cout << ">>> WYSZUKIWANIE ADRESATOW O NAZWISKU  <<<" << endl << endl;
 
-        cout << "Wyszukaj adresatow o imieniu: ";
+        cout << "Wyszukaj adresatow o nazwisku: ";
         cin.sync();
         nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::wczytajLinie();
         nazwiskoPoszukiwanegoAdresata = MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(nazwiskoPoszukiwanegoAdresata);
@@ -287,7 +288,7 @@ string AdresatMenager::zamienDaneAdresataNaLinieZDanymiOddzielonymiPionowymiKres
     cout << endl;
     system("pause");
 
-}*/
+}
 void AdresatMenager::wyszukajAdresatowPoImieniu()
 {
     string imiePoszukiwanegoAdresata = "";

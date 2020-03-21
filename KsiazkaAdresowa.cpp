@@ -87,7 +87,7 @@ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
     }
 }
 
-/*void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
 {
      if(uzytkownikMenager.czyUzytkownikJestZalogowany())
     {
@@ -98,7 +98,7 @@ void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
         cout<<"Aby wyszukac adresata nalezy sie zalogowac!"<<endl;
         system("pause");
     }
-}*/
+}
 
 bool KsiazkaAdresowa::czyUzytkownikJestZalogowany()
 {

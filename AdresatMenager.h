@@ -37,7 +37,7 @@ public:
     void edytujAdresata();
     void zaktualizujDaneWybranegoAdresata(Adresat adresat);
     void wyszukajAdresatowPoImieniu();
-    //void wyszukajAdresatowPoNazwisku();
+    void wyszukajAdresatowPoNazwisku();
     char wybierzOpcjeZMenuEdycja();
 
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);
