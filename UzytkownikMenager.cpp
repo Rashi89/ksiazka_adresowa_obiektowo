@@ -26,13 +26,15 @@ Uzytkownik UzytkownikMenager::podajDaneNowegoUzytkownika()
     do
     {
         cout << "Podaj login: ";
-        cin >> login;
+        cin.sync();
+        login=MetodyPomocnicze::wczytajLinie();
         uzytkownik.ustawLogin(login);
 
     } while (czyIstniejeLogin(uzytkownik.pobierzLogin()) == true);
     string haslo;
     cout << "Podaj haslo: ";
-    cin>>haslo;
+    cin.sync();
+    haslo=MetodyPomocnicze::wczytajLinie();
     uzytkownik.ustawHaslo(haslo);
 
     return uzytkownik;
@@ -111,6 +113,7 @@ void UzytkownikMenager::logowanieUzytkownika()
     system("pause");
     return;
 }
+
 void UzytkownikMenager::wylogowanieZalogowanegoUzytkownika()
 {
     idZalogowanegoUzytkownika=0;
@@ -121,7 +124,8 @@ void UzytkownikMenager::zmianaHaslaZalogowanegoUzytkownika()
 {
     string noweHaslo = "";
     cout << "Podaj nowe haslo: ";
-    cin>>noweHaslo;//= MetodyPomocnicze::wczytajLinie();
+    cin.sync();
+    noweHaslo = MetodyPomocnicze::wczytajLinie();
 
     for (vector <Uzytkownik>::iterator itr = uzytkownicy.begin(); itr != uzytkownicy.end(); itr++)
     {
