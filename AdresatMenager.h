@@ -30,11 +30,14 @@ public:
         adresaci = plikiZAdresatami.wczytajAdresatowZalogowanegoUzytkownikaZPliku(ID_ZALOGOWANEGO_UZYTKOWNIKA);
     };
     void wyswietlWszystkichAdresatow();
+    void wyswietlIloscWyszukanychAdresatow(int iloscAdresatow);
 
     void dodajAdresata();
     void usunAdresata();
     void edytujAdresata();
     void zaktualizujDaneWybranegoAdresata(Adresat adresat);
+    void wyszukajAdresatowPoImieniu();
+    //void wyszukajAdresatowPoNazwisku();
     char wybierzOpcjeZMenuEdycja();
 
     Adresat pobierzDaneAdresata(string daneAdresataOddzielonePionowymiKreskami);

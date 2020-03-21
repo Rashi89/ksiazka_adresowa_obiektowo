@@ -74,6 +74,31 @@ void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
     }
 
 }
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+     if(uzytkownikMenager.czyUzytkownikJestZalogowany())
+    {
+        adresatMenager->wyszukajAdresatowPoImieniu();
+    }
+    else
+    {
+        cout<<"Aby wyszukac adresata nalezy sie zalogowac!"<<endl;
+        system("pause");
+    }
+}
+
+/*void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
+{
+     if(uzytkownikMenager.czyUzytkownikJestZalogowany())
+    {
+        adresatMenager->wyszukajAdresatowPoNazwisku();
+    }
+    else
+    {
+        cout<<"Aby wyszukac adresata nalezy sie zalogowac!"<<endl;
+        system("pause");
+    }
+}*/
 
 bool KsiazkaAdresowa::czyUzytkownikJestZalogowany()
 {
